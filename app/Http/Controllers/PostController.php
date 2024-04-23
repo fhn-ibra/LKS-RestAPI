@@ -25,7 +25,6 @@ class PostController extends Controller
         //Ambil foto
         $img = $request->file('attachments');
         foreach($img as $im){
-            $format = explode(".", $im->getClientOriginalName()); //Ambil Format foto
             $name = $im->hashName(); //Ambil Nama Foto yang sudah di Hash
             $im->storeAs('public/posts', $name); //Masuk Ke Storage
 
@@ -84,7 +83,7 @@ class PostController extends Controller
         return response()->json([
             'page' => $page,
             'size' => $size,
-            'posts' => Post::with(['users', 'attachments'])->paginate($size, '*', '', $page)
+            'posts' => Post::with(['users', 'attachments'])->paginate($size, '*', 'page', $page+1)
         ]);
     }
 }
