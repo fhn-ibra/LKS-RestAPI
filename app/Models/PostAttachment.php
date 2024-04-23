@@ -10,6 +10,7 @@ class PostAttachment extends Model
     use HasFactory;
     
     protected $table = 'post_attachments';
+    public $timestamps = false;
 
     protected $fillable = [
         'storage_path',

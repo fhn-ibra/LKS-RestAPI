@@ -10,6 +10,7 @@ class Post extends Model
     use HasFactory;
 
     protected $table = 'posts';
+    public $timestamps = false;
 
     protected $fillable = [
         'caption',
