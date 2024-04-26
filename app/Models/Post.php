@@ -22,6 +22,6 @@ class Post extends Model
     }
 
     public function attachments(){
-        return $this->belongsTo(PostAttachment::class, 'id', 'post_id');
+        return $this->hasMany(PostAttachment::class, 'post_id', 'id');
     }
 }
